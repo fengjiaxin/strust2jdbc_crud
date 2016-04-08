@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+          "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+
+<struts>
+	<package name="strutsqweqwe" extends="struts-default">
+		<action name="hello" class="demo.HelloAction" method="execute">
+			<result name="success">/demo/success.jsp</result>
+		</action>
+		<action name="2_*" class="demo.ValueAction" method="vae_{1}">
+			<result name="success">/demo/success.jsp</result>
+		</action>
+		<action name="2" class="demo.ValueAction">
+			<result name="success">/demo/success.jsp</result>
+		</action>
+		<!--转发-->
+		<action name="login" class="demo.LoginAction" method="dispatcher">
+			<result name="success">/demo/success.jsp</result>
+		</action>
+		<action name="loginredirect" class="demo.LoginAction" method="redirect">
+			<result name="success" type="redirect">/demo/success1.jsp</result>
+		</action>
+		<!-- 下面jdbc包下的 -->
+		<action name="loginjdbc" class="jdbc.LoginAction" method="execute">
+			<result name="success">/success.jsp</result>
+			<result name="error">/error.jsp</result>	
+		</action>
+		<action name="addjdbc" class="jdbc.AddAction" method="execute">
+			<result name="success">/success.jsp</result>
+			<result name="error" type="redirect">/demo/adduser.html</result>	
+		</action>
+		<action name="findpwjdbc" class="jdbc.FindpwAction" method="execute">
+			<result name="success">/demo/back.jsp</result>
+			<result name="error" type="redirect">/demo/findpw.html</result>	
+		</action>
+		
+	</package>
+</struts>
+
